@@ -1,0 +1,2 @@
+Main-Class: Exd
+SplashScreen-Image: ic.PNG
