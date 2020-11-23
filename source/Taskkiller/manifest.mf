@@ -1,0 +1,2 @@
+Main-Class: Taskkill
+SplashScreen-Image: task.PNG
