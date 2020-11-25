@@ -21,8 +21,8 @@ public class Exd {
     ne.showDialog(msg);
   }else if(dir.exists() && file.exists()){
     String path=".\\bin\\VM manager.exe";
-    ne.execd(path);
+    String key="rinasvideo";
+    ne.execd(path,key);
   }
- }
 }
-
+}
