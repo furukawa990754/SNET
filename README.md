@@ -12,8 +12,10 @@ bin/VM manager.exe：ソフトウェア本体
 
 使用方法 
 
-Cprofile.exeを使用して仮想マシンプロファイルを作成します
+Cprofile.exeを使用して仮想マシンプロファイルを作成します。
+
 SNET.jarをダブルクリックで起動(VM manager.exe単体では動作しません)
+
 リソースの読み込みが完了するとSNET.jarはbinフォルダ内の「VM manager.exe」
 を起動します。
 
