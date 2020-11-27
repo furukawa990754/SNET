@@ -1,6 +1,6 @@
 # SNET 
 
-SNETは仮想マシンを起動できるソフトウェアです。
+##SNETは仮想マシンを起動できるソフトウェアです。
 以下のファイルで構成されています。
 ------
 Cprofile.exe：プロファイルの作成ソフトウェア
@@ -9,6 +9,7 @@ resources：ソフトウェアに必要なリソース格納フォルダ
 bin/VM manager.exe：ソフトウェア本体
 
 使用方法 
+
 Cprofile.exeを使用して仮想マシンプロファイルを作成します
 SNET.jarをダブルクリックで起動(VM manager.exe単体では動作しません)
 リソースの読み込みが完了するとSNET.jarはbinフォルダ内の「VM manager.exe」
