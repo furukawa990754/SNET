@@ -25,4 +25,4 @@ SNET.jarをダブルクリックで起動(VM manager.exe単体では動作しま
 
 SNET.jarはresourcesフォルダとbinフォルダ内のVM managerを読み込む必要があるため二つのフォルダはSNET.jarと同じ階層に配置する必要があります。
 
-(このソフトウェアが現在対応している仮想化ソフトウェアはVirtualBoxのみです)
+(このソフトウェアは起動処理にVBoxmanageコマンドを使用しますのでVBoxmanageコマンドにパスを通す必要があります)
