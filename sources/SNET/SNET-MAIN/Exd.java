@@ -4,7 +4,7 @@ public class Exd {
   public static void main(String[] args) {
     Ca ne=new Ca();
     System.out.println("");
-    System.out.println(" rinasvideo launcher Ver 1.5");
+    System.out.println(" rinasvideo launcher Ver 1.6");
     System.out.println("");
     System.out.println(" Check binary and resources File!");
     File dir=new File("./resources/icon/ifs.ico");
