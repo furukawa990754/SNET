@@ -26,7 +26,6 @@ SNET.jarはresourcesフォルダとbinフォルダ内のVM managerを読み込�
 バージョン表示とともに処理が終了次第「VM manager.exe」に処理が移ります。
 
 (このコマンドで起動する場合プロンプトのカレントディレクトリはSNET.jarが格納されているフォルダにする必要があります。)
-
+```
 java -jar SNET.jar
-
-
+```
