@@ -5,7 +5,7 @@
 *SNET.jarの起動にはJava JREが必要です。
 
 Cprofile.exeを使用して仮想マシンプロファイルを作成します。
-SNET.jarをダブルクリックで起動するか下の起動方法を参照してください
+SNET.jarをダブルクリックで起動するか下の起動方法*1を参照してください
 リソースの読み込みが完了するとSNET.jarはbinフォルダ内の「VM manager.exe」
 を起動します。
 
@@ -19,7 +19,7 @@ SNET.jarはresourcesフォルダとbinフォルダ内のVM managerを読み込�
 (このソフトウェアは起動処理にVirtualBoxのVBoxmanageコマンドを使用しますのでVBoxmanageコマンドにパスを通す必要があります)
 
 ------
-### 起動方法(SNET.jar)
+### 起動方法*1(SNET.jar)
 
 もしダブルクリックで起動できない環境の場合、以下のコマンドで起動ができます。
 
