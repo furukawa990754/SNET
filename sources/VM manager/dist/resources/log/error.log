@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "VM manager.py", line 125, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: './resources/usr/user.dat'
+Traceback (most recent call last):
+  File "VM manager.py", line 110, in opendec
+  File "subprocess.py", line 420, in check_output
+  File "subprocess.py", line 524, in run
+subprocess.CalledProcessError: Command 'java -jar C:\Users\t_koga\AppData\Local\Temp\_MEI101162\resources/startvm.jar{6a5d7743-1105-4c3f-be12-9539a0a696f0}' returned non-zero exit status 1.
+
+このエラーの発生後はプロセスの開放が正常に動作しない場合があるため、
+以下の操作を手動で行う必要があります。
+ 「VM manager.exe」が存在する場合は以下のコマンドを実行
+「taskkill /f /pid VM manager.exe」
+ここまでを簡単に実行できるファイルも出力しました「task.bat」です。
+ このエラーはVMUUIDが間違っている可能性があることを意味します。
