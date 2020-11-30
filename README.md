@@ -4,7 +4,9 @@
 *SNET.jarの起動にはJava JREが必要です。
 
 ```
-> Cprofile.exe
+E:¥SNET>Cprofile.exe
+"TestOS {11111111111...}
+
 
 
 ```
