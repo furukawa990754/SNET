@@ -3,6 +3,12 @@
 
 *SNET.jarの起動にはJava JREが必要です。
 
+```
+> Cprofile.exe
+
+
+```
+
 Cprofile.exeを使用して仮想マシンプロファイルを作成します。
 SNET.jarをダブルクリックで起動するか下の起動方法*2を参照してください
 リソースの読み込みが完了するとSNET.jarはbinフォルダ内の「VM manager.exe」
