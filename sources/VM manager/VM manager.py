@@ -177,7 +177,7 @@ try:
             except ImportError:
                DEVNULL = os.open(os.devnull, os.O_RDWR)
             c=subprocess.check_output("java -jar "+resourcePath("resources/clean.jar"),stdin=DEVNULL, stderr=DEVNULL,shell=True)
-            hashd = hashlib.md5(os.getlogin().encode()).hexdigest()
+        hashd = hashlib.md5(os.getlogin().encode()).hexdigest()
         with open("./resources/usr/user.dat", 'wb') as web:
             pickle.dump(hashd, web)
         ccf=1
