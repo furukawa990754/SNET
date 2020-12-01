@@ -7,9 +7,8 @@ public class Exd {
     System.out.println(" rinasvideo launcher Ver 1.6");
     System.out.println("");
     System.out.println(" Check binary and resources File!");
-    File dir=new File("./resources/icon/ifs.ico");
+    File dir=new File("./resources/");
     File file=new File(".\\bin\\VM manager.exe");
-    File file1=new File(".\\VM manager.exe");
     System.out.println("");
     try{
      Thread.sleep(10000/2);

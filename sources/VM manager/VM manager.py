@@ -70,15 +70,23 @@ try:
                 typ=config['type'].get('type')
                 ens=config['type'].get('active')
                 ens=int(ens)
+                ens1=config['type'].get('cath')
+                ens1=int(ens1)
                 typ=int(typ)
-                fTyp = [("DATファイル", "*.dat")]
-                iDir = os.path.abspath("./resources/profile/")
-                ile_name = tkinter.filedialog.askopenfilename(filetypes=fTyp, initialdir=iDir)
-                if ile_name=="" or ile_name==None:
-                    messagebox.showwarning("VM manager", "仮想マシンの起動処理を中止します。")
-                    return "break"
-                with open(ile_name, 'rb') as web:
-                    intf1 = pickle.load(web)
+                if os.path.isfile("./resources/cath/cath.dat") !=True:
+                    fTyp = [("DATファイル", "*.dat")]
+                    iDir = os.path.abspath("./resources/profile/")
+                    ile_name = tkinter.filedialog.askopenfilename(filetypes=fTyp, initialdir=iDir)
+                    if ile_name=="" or ile_name==None:
+                        messagebox.showwarning("VM manager", "仮想マシンの起動処理を中止します。")
+                        return "break"
+                    with open(ile_name, 'rb') as web:
+                        intf1 = pickle.load(web)
+                else:
+                    with open("./resources/cath/cath.dat", 'rb') as web:
+                        ile_name = pickle.load(web)
+                    with open(ile_name, 'rb') as web:
+                        intf1 = pickle.load(web)
                 intf1s=copy.copy(intf1[0])
                 intf1[0]=base64.b64decode(intf1s).decode()
                 hashd = hashlib.md5(intf1[0].encode() ).hexdigest()
@@ -104,8 +112,11 @@ try:
         ret=messagebox.askyesno("VM manager", dir) 
         if ret!=True:
             return "break"
-        
-        winsound.PlaySound("resources/wav/boot.wav", winsound.SND_FILENAME)
+        if ens==1:
+            with open("./resources/cath/cath.dat", 'wb') as web:
+                pickle.dump(ile_name , web)
+        if os.path.isfile("./resources/wav/boot.wav") ==True:
+            winsound.PlaySound("./resources/wav/boot.wav", winsound.SND_FILENAME)
         try:
             uuid=" "+uuid
             c=subprocess.check_output("java -jar "+resourcePath("resources/startvm.jar")+uuid, stdin=DEVNULL, stderr=DEVNULL,shell=True)
@@ -123,8 +134,12 @@ try:
         c=subprocess.check_output("java -jar "+resourcePath("resources/Task.jar"),stdin=DEVNULL, stderr=DEVNULL,shell=True)
         return "break"
     args = sys.argv
-    with open("./resources/usr/user.dat", 'rb') as web:
-        cgh = pickle.load(web)
+    if os.path.isfile("./resources/usr/user.dat") ==True:
+        with open("./resources/usr/user.dat", 'rb') as web:
+            cgh = pickle.load(web)
+    else:
+        cgh="damy"
+    hashd1 = hashlib.md5(os.getlogin().encode()).hexdigest()
     hashd = hashlib.md5(args[2].encode() ).hexdigest()
     
 
@@ -144,17 +159,7 @@ try:
     Button = tkinter.Button(text=u'仮想マシン起動',font=("",10))
     Button.bind("<Button-1>",dcall) 
     Button.pack()
-    if (os.getlogin()!=cgh and ccf==0):
-        ret=messagebox.askyesno("VM manager", "使用されているユーザーが異なります。\nプロファイルを削除しますか?")
-        if ret==True:
-            try:
-               from subprocess import DEVNULL
-            except ImportError:
-               DEVNULL = os.open(os.devnull, os.O_RDWR)
-            c=subprocess.check_output("java -jar "+resourcePath("resources/clean.jar"),stdin=DEVNULL, stderr=DEVNULL,shell=True)
-            with open("./resources/usr/user.dat", 'wb') as web:
-                pickle.dump(os.getlogin(), web)
-        ccf=1
+    
     Static4 = tkinter.Label(text=u' ')
     Static4.pack()
     
@@ -164,7 +169,18 @@ try:
 
     Static3 = tkinter.Label(text=u' ')
     Static3.pack()
-
+    if (hashd1!=cgh and ccf==0):
+        ret=messagebox.askyesno("VM manager", "使用されているユーザーが異なります。\nプロファイルを削除しますか?")
+        if ret==True:
+            try:
+               from subprocess import DEVNULL
+            except ImportError:
+               DEVNULL = os.open(os.devnull, os.O_RDWR)
+            c=subprocess.check_output("java -jar "+resourcePath("resources/clean.jar"),stdin=DEVNULL, stderr=DEVNULL,shell=True)
+            hashd = hashlib.md5(os.getlogin().encode()).hexdigest()
+        with open("./resources/usr/user.dat", 'wb') as web:
+            pickle.dump(hashd, web)
+        ccf=1
     root.mainloop()
 except SystemExit:
     pass

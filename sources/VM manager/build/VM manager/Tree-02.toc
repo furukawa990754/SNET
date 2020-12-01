@@ -1,0 +1,7 @@
+('resources',
+ 'resources',
+ [],
+ 'DATA',
+ [('resources\\clean.jar', 'resources\\clean.jar', 'DATA'),
+  ('resources\\startvm.jar', 'resources\\startvm.jar', 'DATA'),
+  ('resources\\Task.jar', 'resources\\Task.jar', 'DATA')])
