@@ -70,8 +70,8 @@ try:
                 typ=config['type'].get('type')
                 ens=config['type'].get('active')
                 ens=int(ens)
-                ens1=config['type'].get('cath')
-                ens1=int(ens1)
+                ens=config['type'].get('cath')
+                ens1=int(ens)
                 typ=int(typ)
                 if os.path.isfile("./resources/cath/cath.dat") !=True:
                     fTyp = [("DATファイル", "*.dat")]
