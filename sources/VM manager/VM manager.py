@@ -71,8 +71,8 @@ try:
                 typ=config['type'].get('type')
                 ens=config['type'].get('active')
                 ens=int(ens)
-                ens=config['type'].get('cath')
-                ens1=int(ens)
+                ens2=config['type'].get('cath')
+                ens1=int(ens2)
                 typ=int(typ)
                 if os.path.isfile("./resources/cath/cath.dat") !=True:
                     fTyp = [("DATファイル", "*.dat")]
@@ -113,7 +113,7 @@ try:
         ret=messagebox.askyesno("VM manager", dir) 
         if ret!=True:
             return "break"
-        if ens==1:
+        if ens1==1:
             with open("./resources/cath/cath.dat", 'wb') as web:
                 pickle.dump(ile_name , web)
         now = datetime.datetime.now()
