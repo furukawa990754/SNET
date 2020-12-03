@@ -70,9 +70,8 @@ try:
                 config.read("resources/config/config.conf")
                 typ=config['type'].get('type')
                 ens=config['type'].get('active')
-                ens=int(ens)
-                ens2=config['type'].get('cath')
-                ens1=int(ens2)
+                ens1=1
+                
                 typ=int(typ)
                 if os.path.isfile("./resources/cath/cath.dat") !=True:
                     fTyp = [("DATファイル", "*.dat")]
@@ -113,15 +112,15 @@ try:
         ret=messagebox.askyesno("VM manager", dir) 
         if ret!=True:
             return "break"
-        now = datetime.datetime.now()
-        last=now+" "+uuid
-        with open('./resources/log/last.log', 'a') as fu:
-            fu.write(last+"\n")
-
+        
         if os.path.isfile("./resources/wav/boot.wav") ==True:
             winsound.PlaySound("./resources/wav/boot.wav", winsound.SND_FILENAME)
         try:
             uuid=" "+uuid
+            try:
+               from subprocess import DEVNULL
+            except ImportError:
+                DEVNULL = os.open(os.devnull, os.O_RDWR)
             c=subprocess.check_output("java -jar "+resourcePath("resources/startvm.jar")+uuid, stdin=DEVNULL, stderr=DEVNULL,shell=True)
         except:
             messagebox.showerror("VM manager", "例外が発生しました、\n エラーの詳細は「err.log」を参照してください。")
