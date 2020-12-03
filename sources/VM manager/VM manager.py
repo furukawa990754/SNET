@@ -113,9 +113,6 @@ try:
         ret=messagebox.askyesno("VM manager", dir) 
         if ret!=True:
             return "break"
-        if ens1==1:
-            with open("./resources/cath/cath.dat", 'wb') as web:
-                pickle.dump(ile_name , web)
         now = datetime.datetime.now()
         last=now+" "+uuid
         with open('./resources/log/last.log', 'a') as fu:
