@@ -16,6 +16,7 @@ import configparser
 import tkinter.filedialog
 import random
 import base64
+import datetime
 
 print('')
 print(' GUIを操作してください')
@@ -115,6 +116,11 @@ try:
         if ens==1:
             with open("./resources/cath/cath.dat", 'wb') as web:
                 pickle.dump(ile_name , web)
+        now = datetime.datetime.now()
+        last=now+" "+uuid
+        with open('./resources/log/last.log', 'a') as fu:
+            fu.write(last+"\n")
+
         if os.path.isfile("./resources/wav/boot.wav") ==True:
             winsound.PlaySound("./resources/wav/boot.wav", winsound.SND_FILENAME)
         try:
