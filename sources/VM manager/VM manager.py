@@ -82,6 +82,8 @@ try:
                         return "break"
                     with open(ile_name, 'rb') as web:
                         intf1 = pickle.load(web)
+                    with open("./resources/cath/cath.dat", 'wb') as web:
+                        pickle.dump(ile_name , web)
                 else:
                     with open("./resources/cath/cath.dat", 'rb') as web:
                         ile_name = pickle.load(web)
@@ -153,7 +155,7 @@ try:
     Static1 = tkinter.Label(text=u' ')
     Static4 = tkinter.Label(text=u' ')
     root.title(u"VM")
-    root.geometry("200x100")
+    root.geometry("200x110")
     root.iconbitmap(default="resources/icon/ifs.ico")
     Static1.pack()
     Static1.pack()
